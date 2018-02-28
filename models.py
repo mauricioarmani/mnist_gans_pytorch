@@ -56,5 +56,5 @@ class Generator(nn.Module):
 		x = F.leaky_relu(x)
 
 		x = self.deconv3(x)
-		x = F.tanh(x)#.permute(0, 2, 3, 1)
+		x = F.tanh(x)
 		return x

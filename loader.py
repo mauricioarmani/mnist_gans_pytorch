@@ -21,6 +21,10 @@ class Data(Dataset):
 
 
 def load_data(batch_size):
-    dataset = datasets.MNIST('dataset/', train=True, transform=transforms.ToTensor())
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+    ])
+    dataset = datasets.MNIST('dataset/', train=True, transform=transform)
     data = DataLoader(dataset, batch_size=batch_size, shuffle=True)
     return data
